@@ -19,29 +19,30 @@ public class Gameview {
     }
 
     public void initGame(){
+        //ゲームサイズとかの初期設定
 
     }
 
     public void showStartGame(){
-
+        //start画面を表示する。
     }
 
     public int showScore(){
-
+        //スコアを表示する
         return 0;
     }
 
     public void drawSnake(LinkedList<Node> body){
-
+        //蛇を表示する
     }
 
     public Node drawFood(Node food){
-
+        //foodを表示する
         return food;
     }
 
     public void showGameover(){
-
+        //gameover画面を表示する
     }
 
 }

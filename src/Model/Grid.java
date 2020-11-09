@@ -6,13 +6,14 @@ import java.util.LinkedList;
 
 public class Grid {
     private boolean isdead;
+    //盤面の状態を記録し、蛇の体があるところをtrueにする。
     private final boolean status[][];
     private final int width;
     private final int height;
     private final int cellSize;
     private Snake snake;
     private Node food;
-    private Direction snakeDirection = Direction.L;
+    private Direction snakeDirection;
 
     public Grid(int width,int height,int cellSize) {
         this.width = width;
@@ -24,22 +25,38 @@ public class Grid {
     }
 
     public Node crateFood() {
-
+        //foodを乱数で一個作る。foodが蛇の体と重ならないようにする。
         return food;
     }
 
     private Snake initSnake() {
-
+        //snakeのインスタンスを作り、初期設定をし、盤面情報(status)を更新する。体三つ、初期方向左向き
         isdead=false;
         return snake;
     }
 
-    public boolean nextRound(){
+    private boolean isFood(Node head){
+        return head.getX() == food.getX() && head.getY() == food.getY();
+    }
 
-        return isdead;
+    public boolean nextRound(){
+        //移動したら蛇がまだ生きていたならtrueを返す。
+        /*
+        蛇を一歩動かす
+        if(頭が合法かどうか){
+            if(isFood()){
+                move()で消した尻尾を戻す
+                新しいfoodを作る
+            }
+            盤面情報を更新する
+        }
+         */
+
+        return !isdead;
     }
 
     private boolean isLegal(Snake snake){
+        //頭のいる位置が合法的かどうかを判断する
         Node head = snake.getHead();
         LinkedList<Node> body = snake.getBody();
         boolean isInLegalArea = head.getX()>-1 && head.getX()<(width/cellSize) && head.getY()>-1 && head.getY()<(height/cellSize);
