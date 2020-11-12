@@ -16,12 +16,16 @@ public class GameController {
         //キーボードでsnakeDirectionを変える。
     }
 
-    public void startButton(){
-        //game startボタンを機能させる
+    public boolean startButton(){
+        //game startボタンを機能させる、Start文字の範囲内にクリックしたらfalseを返す,else trueを返す
+        boolean flag = false;
+        return flag;
     }
 
-    public void restartButton(){
-        //restartボタンを機能させる　
+    public boolean restartButton(){
+        //restartボタンを機能させる　,restart文字の範囲内にクリックしたらflaseを返す、else trueを返す
+        boolean flag = false;
+        return flag;
     }
 
 

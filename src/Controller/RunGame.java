@@ -9,9 +9,14 @@ public class RunGame {
         Gameview gameview = new Gameview(grid);
         GameController gameController = new GameController(grid,gameview);
 
+
     }
 
-    public void draw(){
+    public static void main(String[] args) {
+        int width = 900;int height = 600; int cellSize = 30;
+        Grid grid = new Grid(width,height,cellSize);
+        Gameview gameview = new Gameview(grid);
+        GameController gameController = new GameController(grid,gameview);
 
     }
 }

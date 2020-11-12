@@ -32,13 +32,17 @@ public class Gameview {
         return 0;
     }
 
-    public void drawSnake(LinkedList<Node> body){
+    public void drawSnake(){
         //蛇を表示する
     }
 
-    public Node drawFood(Node food){
+    public void drawFood(){
         //foodを表示する
-        return food;
+
+    }
+
+    public void drawBack(){
+        //背景を表示する
     }
 
     public void showGameover(){

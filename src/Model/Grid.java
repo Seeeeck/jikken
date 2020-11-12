@@ -13,15 +13,17 @@ public class Grid {
     private final int cellSize;
     private Snake snake;
     private Node food;
-    private Direction snakeDirection;
+    //初期方向:左
+    private Direction direction = new Direction('L');
+
 
     public Grid(int width,int height,int cellSize) {
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
         status = new boolean[height][width];
-        initSnake();
-        crateFood();
+        snake = initSnake();
+        food = crateFood();
     }
 
     public Node crateFood() {
@@ -30,7 +32,7 @@ public class Grid {
     }
 
     private Snake initSnake() {
-        //snakeのインスタンスを作り、初期設定をし、盤面情報(status)を更新する。体三つ、初期方向左向き
+        //snakeのインスタンスを作り、初期設定をし、盤面情報(status)を更新する。体三つ
         isdead=false;
         return snake;
     }
@@ -45,7 +47,7 @@ public class Grid {
         蛇を一歩動かす
         if(頭が合法かどうか){
             if(isFood()){
-                move()で消した尻尾を戻す
+                eat()
                 新しいfoodを作る
             }
             盤面情報を更新する
@@ -71,9 +73,9 @@ public class Grid {
         return !isInBody && isInLegalArea;
     }
 
-    public void changeDirection(Direction newDirection) {
-        if (snakeDirection.compatibleWith(newDirection)) {
-            snakeDirection = newDirection;
+    public void changeDirection(char newDirection) {
+        if (direction.compatibleWith(newDirection)) {
+             direction.setDirectionCode(newDirection);
         }
     }
 
@@ -91,5 +93,13 @@ public class Grid {
 
     public boolean getIsdead(){
         return isdead;
+    }
+
+    public Snake getSnake(){
+        return snake;
+    }
+
+    public Node getFood(){
+        return food;
     }
 }
